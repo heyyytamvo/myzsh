@@ -43,6 +43,12 @@ if command -v kubectl &>/dev/null && command -v kubectx &>/dev/null && command -
   }
 fi
 
+# Alias for aws
+if command -v aws &>/dev/null; then
+  alias awsid="aws sts get-caller-identity"
+  alias awskube="aws eks update-kubeconfig --name"
+fi
+
 # Alias for git
 if command -v git &>/dev/null; then
   alias g="git"
