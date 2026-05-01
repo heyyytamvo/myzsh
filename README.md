@@ -1,6 +1,6 @@
 # myzsh
 
-My personal shell setup for macOS (zsh) and Linux (bash). One command to bootstrap a new device.
+My personal shell setup for macOS and Linux. One command to bootstrap a new device.
 
 ## Setup
 
@@ -8,7 +8,9 @@ My personal shell setup for macOS (zsh) and Linux (bash). One command to bootstr
 bash setup.sh
 ```
 
-This installs everything and writes the shell config automatically.
+This installs everything and writes `~/.zshrc` automatically.
+
+> **Linux:** Run as a non-root user (e.g. `ubuntu`), not `root` — scripts use `sudo` internally where needed. After setup, run `exec zsh` to switch shell (do not `source ~/.zshrc` from bash).
 
 ## What gets installed
 
