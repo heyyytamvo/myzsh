@@ -14,22 +14,28 @@ if ! command -v kubectl &>/dev/null; then
   echo "kubectl $KUBECTL_VERSION installed"
 fi
 
+# kubectx/kubens use x86_64 instead of amd64 in release filenames
+case "$ARCH_NAME" in
+  amd64) KUBECTX_ARCH="x86_64" ;;
+  arm64) KUBECTX_ARCH="arm64"  ;;
+esac
+
 if ! command -v kubectx &>/dev/null; then
-  echo "Installing kubectx ($OS_NAME/$ARCH_NAME)..."
+  echo "Installing kubectx ($OS_NAME/$KUBECTX_ARCH)..."
   KUBECTX_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | grep -o '"tag_name":"[^"]*"' | cut -d'"' -f4)"
-  curl -fsSLo /tmp/kubectx \
-    "https://github.com/ahmetb/kubectx/releases/download/${KUBECTX_VERSION}/kubectx_${KUBECTX_VERSION}_${OS_NAME}_${ARCH_NAME}.tar.gz"
-  tar -xzf /tmp/kubectx -C /tmp/ kubectx
+  curl -fsSLo /tmp/kubectx.tar.gz \
+    "https://github.com/ahmetb/kubectx/releases/download/${KUBECTX_VERSION}/kubectx_${KUBECTX_VERSION}_${OS_NAME}_${KUBECTX_ARCH}.tar.gz"
+  tar -xzf /tmp/kubectx.tar.gz -C /tmp/ kubectx
   sudo mv /tmp/kubectx /usr/local/bin/kubectx
-  rm /tmp/kubectx* 2>/dev/null || true
+  rm /tmp/kubectx.tar.gz
   echo "kubectx $KUBECTX_VERSION installed"
 fi
 
 if ! command -v kubens &>/dev/null; then
-  echo "Installing kubens ($OS_NAME/$ARCH_NAME)..."
+  echo "Installing kubens ($OS_NAME/$KUBECTX_ARCH)..."
   KUBENS_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | grep -o '"tag_name":"[^"]*"' | cut -d'"' -f4)"
   curl -fsSLo /tmp/kubens.tar.gz \
-    "https://github.com/ahmetb/kubectx/releases/download/${KUBENS_VERSION}/kubens_${KUBENS_VERSION}_${OS_NAME}_${ARCH_NAME}.tar.gz"
+    "https://github.com/ahmetb/kubectx/releases/download/${KUBENS_VERSION}/kubens_${KUBENS_VERSION}_${OS_NAME}_${KUBECTX_ARCH}.tar.gz"
   tar -xzf /tmp/kubens.tar.gz -C /tmp/ kubens
   sudo mv /tmp/kubens /usr/local/bin/kubens
   rm /tmp/kubens.tar.gz
