@@ -22,7 +22,7 @@ esac
 
 if ! command -v kubectx &>/dev/null; then
   echo "Installing kubectx ($OS_NAME/$KUBECTX_ARCH)..."
-  KUBECTX_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | grep -o '"tag_name":"[^"]*"' | cut -d'"' -f4)"
+  KUBECTX_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r '.tag_name')"
   curl -fsSLo /tmp/kubectx.tar.gz \
     "https://github.com/ahmetb/kubectx/releases/download/${KUBECTX_VERSION}/kubectx_${KUBECTX_VERSION}_${OS_NAME}_${KUBECTX_ARCH}.tar.gz"
   tar -xzf /tmp/kubectx.tar.gz -C /tmp/ kubectx
@@ -33,7 +33,7 @@ fi
 
 if ! command -v kubens &>/dev/null; then
   echo "Installing kubens ($OS_NAME/$KUBECTX_ARCH)..."
-  KUBENS_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | grep -o '"tag_name":"[^"]*"' | cut -d'"' -f4)"
+  KUBENS_VERSION="$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r '.tag_name')"
   curl -fsSLo /tmp/kubens.tar.gz \
     "https://github.com/ahmetb/kubectx/releases/download/${KUBENS_VERSION}/kubens_${KUBENS_VERSION}_${OS_NAME}_${KUBECTX_ARCH}.tar.gz"
   tar -xzf /tmp/kubens.tar.gz -C /tmp/ kubens
@@ -44,7 +44,7 @@ fi
 
 if ! command -v k9s &>/dev/null; then
   echo "Installing k9s ($OS_NAME/$ARCH_NAME)..."
-  K9S_VERSION="$(curl -fsSL https://api.github.com/repos/derailed/k9s/releases/latest | grep -o '"tag_name":"[^"]*"' | cut -d'"' -f4)"
+  K9S_VERSION="$(curl -fsSL https://api.github.com/repos/derailed/k9s/releases/latest | jq -r '.tag_name')"
   # k9s uses capitalized OS in filenames: Darwin, Linux
   case "$OS_NAME" in
     darwin) K9S_OS="Darwin" ;;
