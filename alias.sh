@@ -42,3 +42,36 @@ if command -v kubectl &>/dev/null && command -v kubectx &>/dev/null && command -
     kubectl exec -it "${1}" -- "${@:2}"
   }
 fi
+
+# Alias for git
+if command -v git &>/dev/null; then
+  alias g="git"
+  alias gs="git status"
+  alias ga="git add"
+  alias gd="git diff"
+  alias gco="git checkout"
+  alias gb="git branch"
+
+  # commit
+  alias gcm="git commit -m"
+  alias gca="git commit --amend"
+  alias gcane="git commit --amend --no-edit"
+
+  # push
+  alias gp="git push origin"
+  alias gpf="git push --force-with-lease origin"
+
+  # pull
+  alias gpull="git pull"
+  alias gpor="git pull --rebase"
+
+  # merge
+  alias gm="git merge"
+
+  # stash
+  alias gst="git stash"
+  alias gstp="git stash pop"
+
+  # log
+  alias gl="git log --oneline --graph --decorate"
+fi
