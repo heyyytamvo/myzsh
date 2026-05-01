@@ -61,6 +61,7 @@ cat > "$SHELL_RC" <<EOF
 source "$REPO_DIR/alias.sh"
 source "$REPO_DIR/functions.sh"
 source "\$HOME/.kube-ps1/kube-ps1.sh"
+PS1='\$(kube_ps1)'\$PS1
 [ -f "\$HOME/.fzf.bash" ] && source "\$HOME/.fzf.bash"
 export PATH="/usr/local/go/bin:\$PATH"
 EOF
