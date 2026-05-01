@@ -41,6 +41,9 @@ bash "$REPO_DIR/tools/terraform.sh"
 # ── Go ────────────────────────────────────────────────────────────────────────
 bash "$REPO_DIR/tools/golang.sh"
 
+# ── fzf ───────────────────────────────────────────────────────────────────────
+bash "$REPO_DIR/tools/fzf.sh"
+
 # ── shell config ──────────────────────────────────────────────────────────────
 if [[ "$OS_NAME" == "darwin" ]]; then
   SHELL_RC="$HOME/.zshrc"
@@ -58,12 +61,14 @@ cat > "$SHELL_RC" <<EOF
 source "$REPO_DIR/alias.sh"
 source "$REPO_DIR/functions.sh"
 source "\$HOME/.kube-ps1/kube-ps1.sh"
+[ -f "\$HOME/.fzf.bash" ] && source "\$HOME/.fzf.bash"
 export PATH="/usr/local/go/bin:\$PATH"
 EOF
 else
 cat > "$SHELL_RC" <<EOF
 source "$REPO_DIR/alias.sh"
 source "$REPO_DIR/functions.sh"
+[ -f "\$HOME/.fzf.zsh" ] && source "\$HOME/.fzf.zsh"
 export PATH="/usr/local/go/bin:\$PATH"
 EOF
 fi

@@ -23,11 +23,12 @@ This installs everything and writes the shell config automatically.
 | Terraform | ✅ | ✅ |
 | Docker | — (manual) | ✅ amd64 only |
 | Go 1.24.3 | ✅ | ✅ |
+| fzf (fuzzy search) | ✅ | ✅ |
 
 ## Files
 
 - `setup.sh` — main entry point
-- `alias.sh` — shell aliases (kubectl, ssh, etc.), sourced into shell config
+- `alias.sh` — shell aliases (kubectl, ssh, git, etc.), sourced into shell config
 - `functions.sh` — `get_cluster_short()` and kube-ps1 config, sourced into shell config
 - `myzsh.sh` — reference zshrc (not touched by setup)
 - `tools/` — individual install scripts, each runnable standalone
@@ -41,4 +42,5 @@ bash tools/kubectl.sh
 bash tools/aws.sh
 bash tools/terraform.sh
 bash tools/golang.sh
+bash tools/fzf.sh
 ```
