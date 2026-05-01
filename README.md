@@ -23,6 +23,7 @@ This installs everything and writes the shell config automatically.
 | Terraform | ✅ | ✅ |
 | Docker | — (manual) | ✅ amd64 only |
 | Go 1.24.3 | ✅ | ✅ |
+| Helm | ✅ | ✅ |
 | fzf (fuzzy search) | ✅ | ✅ |
 
 ## Files
@@ -42,5 +43,6 @@ bash tools/kubectl.sh
 bash tools/aws.sh
 bash tools/terraform.sh
 bash tools/golang.sh
+bash tools/helm.sh
 bash tools/fzf.sh
 ```
