@@ -52,6 +52,12 @@ if [[ -f "$SHELL_RC" && ! -L "$SHELL_RC" ]]; then
 fi
 
 cat > "$SHELL_RC" <<EOF
+export ZSH="\$HOME/.oh-my-zsh"
+ZSH_THEME="gnzh"
+plugins=(git zsh-autosuggestions zsh-bat zsh-syntax-highlighting kube-ps1)
+source "\$ZSH/oh-my-zsh.sh"
+PROMPT='\$(kube_ps1)'\$PROMPT
+
 source "$REPO_DIR/alias.sh"
 source "$REPO_DIR/functions.sh"
 [ -f "\$HOME/.fzf.zsh" ] && source "\$HOME/.fzf.zsh"
