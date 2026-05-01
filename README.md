@@ -29,7 +29,7 @@ This installs everything and writes the shell config automatically.
 ## Files
 
 - `setup.sh` — main entry point
-- `alias.sh` — shell aliases (kubectl, ssh, git, aws, terraform, etc.), sourced into shell config
+- `alias.sh` — shell aliases (kubectl, ssh, git, aws, terraform, helm, etc.), sourced into shell config
 - `functions.sh` — `get_cluster_short()` and kube-ps1 config, sourced into shell config
 - `myzsh.sh` — reference zshrc (not touched by setup)
 - `tools/` — individual install scripts, each runnable standalone

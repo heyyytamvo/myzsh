@@ -43,6 +43,20 @@ if command -v kubectl &>/dev/null && command -v kubectx &>/dev/null && command -
   }
 fi
 
+# Alias for helm
+if command -v helm &>/dev/null; then
+  alias h="helm"
+  alias hi="helm install"
+  alias hu="helm upgrade"
+  alias hun="helm uninstall"
+  alias hl="helm list"
+  alias hst="helm status"
+  alias hrl="helm rollback"
+  alias ht="helm template"
+  alias hra="helm repo add"
+  alias hru="helm repo update"
+fi
+
 # Alias for terraform
 if command -v terraform &>/dev/null; then
   alias tf="terraform"
