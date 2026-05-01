@@ -46,7 +46,7 @@ fi
 # Alias for git
 if command -v git &>/dev/null; then
   alias g="git"
-  alias gs="git status"
+  alias gss="git status"
   alias ga="git add"
   alias gd="git diff"
   alias gco="git checkout"
