@@ -12,8 +12,4 @@ function get_cluster_short() {
   echo "$region:$cluster_name"
 }
 
-if [[ "$K8S_MODE" == "true" ]]; then
-  export KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
-else
-  export KUBE_PS1_CLUSTER_FUNCTION=null
-fi
+export KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
