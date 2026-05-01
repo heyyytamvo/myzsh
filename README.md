@@ -21,7 +21,7 @@ This installs everything and writes the shell config automatically.
 | kubectl + kubectx + kubens + k9s | ✅ | ✅ |
 | AWS CLI | ✅ | ✅ |
 | Terraform | ✅ | ✅ |
-| Docker | — (manual) | ✅ amd64 only |
+| Docker | — (manual) | ✅ |
 | Go 1.24.3 | ✅ | ✅ |
 | Helm | ✅ | ✅ |
 | fzf (fuzzy search) | ✅ | ✅ |
