@@ -43,6 +43,14 @@ if command -v kubectl &>/dev/null && command -v kubectx &>/dev/null && command -
   }
 fi
 
+# Alias for terraform
+if command -v terraform &>/dev/null; then
+  alias tf="terraform"
+  alias tfi="terraform init"
+  alias tfp="terraform plan -out=tf.plan"
+  alias tfa="terraform apply tf.plan"
+fi
+
 # Alias for aws
 if command -v aws &>/dev/null; then
   alias awsid="aws sts get-caller-identity"
