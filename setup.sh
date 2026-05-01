@@ -9,6 +9,9 @@ detect_platform
 # ── Homebrew (macOS only) ─────────────────────────────────────────────────────
 [[ "$OS_NAME" == "darwin" ]] && bash "$REPO_DIR/tools/brew.sh"
 
+# ── Basic packages ────────────────────────────────────────────────────────────
+bash "$REPO_DIR/tools/basics.sh"
+
 # ── oh-my-zsh + plugins (macOS only) ─────────────────────────────────────────
 if [[ "$OS_NAME" == "darwin" ]]; then
   bash "$REPO_DIR/tools/oh-my-zsh.sh"

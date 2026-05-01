@@ -15,6 +15,7 @@ This installs everything and writes the shell config automatically.
 | Tool | macOS | Linux |
 |---|---|---|
 | Homebrew | ✅ | — |
+| Basic packages (curl, tar, unzip, zip, git, wget, jq) | ✅ | ✅ |
 | oh-my-zsh + plugins | ✅ | — |
 | kube-ps1 | bundled in omz | ✅ cloned |
 | kubectl + kubectx + kubens + k9s | ✅ | ✅ |
@@ -35,6 +36,7 @@ This installs everything and writes the shell config automatically.
 ## Run a single installer
 
 ```bash
+bash tools/basics.sh
 bash tools/kubectl.sh
 bash tools/aws.sh
 bash tools/terraform.sh
