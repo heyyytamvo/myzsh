@@ -16,8 +16,9 @@ This installs everything and writes the shell config automatically.
 |---|---|---|
 | Homebrew | ✅ | — |
 | Basic packages (curl, tar, unzip, zip, git, wget, jq) | ✅ | ✅ |
-| oh-my-zsh + plugins | ✅ | — |
-| kube-ps1 | bundled in omz | ✅ cloned |
+| zsh | built-in | ✅ |
+| oh-my-zsh + plugins | ✅ | ✅ |
+| kube-ps1 | bundled in omz | bundled in omz |
 | kubectl + kubectx + kubens + k9s | ✅ | ✅ |
 | AWS CLI | ✅ | ✅ |
 | Terraform | ✅ | ✅ |
@@ -39,6 +40,7 @@ This installs everything and writes the shell config automatically.
 
 ```bash
 bash tools/basics.sh
+bash tools/zsh.sh
 bash tools/kubectl.sh
 bash tools/aws.sh
 bash tools/terraform.sh
