@@ -13,3 +13,11 @@ function get_cluster_short() {
 }
 
 export KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+
+# Generate private.pem and public.pub in current directory
+function genkey() {
+  local name="${1:-private}"
+  ssh-keygen -t ed25519 -f "${name}.pem" -N ""
+  mv "${name}.pem.pub" "${name}.pub"
+  echo "Generated: ${name}.pem and ${name}.pub"
+}
